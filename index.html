@@ -40,8 +40,7 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 .hidden{display:none}
 .small{font-size:13px;color:var(--muted)}
 @media(max-width:640px){h1{font-size:26px}.container{padding:14px}.header,.panel{padding:18px}}
-
- /* Contenedor normal de la imagen */
+    /* Contenedor normal de la imagen */
     .contenedor-imagen {
       cursor: pointer;
       transition: all 0.3s ease;
@@ -76,7 +75,6 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
       max-height: 90vh;
       box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     }
-
 </style>
 </head>
 <body>
@@ -224,6 +222,11 @@ function mostrar(id){document.getElementById('lista').classList.add('hidden');do
 function volver(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('lista').classList.remove('hidden');document.getElementById('buscador').value='';filtrar()}
 function limpiarFiltro(){document.getElementById('buscador').value='';filtrar()}
 function filtrar(){const q=document.getElementById('buscador').value.toLowerCase().trim();document.querySelectorAll('.prueba').forEach(b=>{const ok=b.textContent.toLowerCase().includes(q);b.style.display=ok?'block':'none'})}
+
+ // Función que añade o quita la clase 'ampliada'
+    function alternarZoom(elemento) {
+      elemento.classList.toggle('ampliada');
+    }
 </script>
 </body>
 </html>
