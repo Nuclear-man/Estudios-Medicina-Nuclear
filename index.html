@@ -40,6 +40,42 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 .hidden{display:none}
 .small{font-size:13px;color:var(--muted)}
 @media(max-width:640px){h1{font-size:26px}.container{padding:14px}.header,.panel{padding:18px}}
+
+  /* Contenedor normal de la imagen */
+    .contenedor-imagen {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* Tamaño normal de la imagen */
+    .contenedor-imagen img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Estado de pantalla completa al hacer clic */
+    .contenedor-imagen.ampliada {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* Tamaño de la imagen cuando está ampliada */
+    .contenedor-imagen.ampliada img {
+      width: auto;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
 </style>
 </head>
 <body>
@@ -88,7 +124,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
   </div>
 
 <div id="panel-osea" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía Ósea</h2>
-	<div class="imgrow"><img src="imagenes/osea.png" alt="Gammagrafía ósea"></div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/osea.png" alt="Gammagrafía ósea">
+		</div>	
+	</div>
     	<p><a href="https://youtube.com/shorts/GJf-Z7EjmMk?si=XsTq6CCCRDyT2iDw" target="_blank">Ver video</a></p>
 	<div class="section"><span class="label">Indicaciones</span>Estudio metabólico óseo indicado en fracturas, reumatología, SDRC (síndrome de Sudeck), prótesis, inflamaciones,tumores e infecciones.
     </div>
@@ -98,15 +137,17 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
     	<p>Después dejaremos pasar entre 2 a 4 horas para repetir más imágenes. En el tiempo de espera se requiere beber abundante líquido (sobre 1,5 litros de agua), pudiendo orinar cuantas veces lo necesite y comer.</p>
 		<p>Si permanece dentro del recinto hospitalarío, deberá esperar en la sala exclusiva del servicio de Medicina Nuclear, que contará también con un baño para los pacientes que se encuentren realizando la prueba.</p> 
         <p>Si desea salir no hay problemas, lo único que no deberá estar acompañado con mujeres embarazadas o niños pequeños.</p>
-        </div>
+    </div>
 	<div class="section"><span class="label">Precauciones</span>Una vez finalizada la prueba, no será necesario tener ninguna precaución con los que les rodean, la dosis restante se eliminará al cabo de poco tiempo.
     	<p>En caso de <strong> embarazo y lactancia</strong> deberá comunicarlo al servicio de Medicina Nuclear para dar instrucciones.</p>
   	</div>
 </div>
   
 <div id="panel-tiroides" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía Tiroides</h2>
-	<div class="imgrow"><img src="imagenes/tiroides.png" alt="Gammagrafía tiroides">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/tiroides.png" alt="Gammagrafía tiroides">
+		</div>
+	</div>
     	<p><a href="https://youtube.com/shorts/E6VQy_7T2Jw?si=CY6kZ7VC9yYy7sV8" target="_blank">Ver video</a></p>
 	<div class="section"><span class="label">Indicaciones</span>Valoración de nódulos, función tiroidea, valoración para tratamientos con Yodo 131 del hipertiroidismo, Bocio Multinodular, Enfermedad de Basedow-Graves.
     </div>
@@ -121,8 +162,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
 
 <div id="panel-renal" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía Renal</h2>
-<div class="imgrow"><img src="imagenes/renal.png" alt="Gammagrafía renal">
-</div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">	
+		<div class="imgrow"><img src="imagenes/renal.png" alt="Gammagrafía renal">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Evaluación de la función cortical y la excreción renal.
     </div>
 	<div class="section"><span class="label">Preparación</span>Hidratación y micción previa, salvo indicación contraria.
@@ -138,7 +181,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
 
  <div id="panel-paratiroides" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía Paratiroides</h2>
- 	<div class="imgrow"><img src="imagenes/paratiro.png" alt="Gammagrafía paratiroides"></div>
+ 	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/paratiro.png" alt="Gammagrafía paratiroides">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Localización de adenomas hiperparatiroideos.
     </div>
 	<div class="section"><span class="label">Preparación</span>No precisa ayunas.
@@ -156,8 +202,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
 
 <div id="panel-linfocintigrafia" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Linfogammagrafía</h2>
-	<div class="imgrow"><img src="imagenes/linfo.png" alt="Linfogammagrafía">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/linfo.png" alt="Linfogammagrafía">
+		</div>
+	</div>
     	<p><a href="https://youtube.com/shorts/STOxl-k2qAE?si=K5n2x50wZ-dE1dJS" target="_blank">Ver video</a></p>
 	<div class="section"><span class="label">Indicaciones</span>Estudio del sistema linfático y del drenaje regional.
     </div>
@@ -165,15 +213,19 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
     </div>
 	<div class="section"><span class="label">Procedimiento</span>Se administrará vía subcutánea entre el primer y segundo dedo de cada mano o pie (según estudio), una pequeña dosis de radioisótopo (Tc-99m). Notará un pequeño picor en la zona que desaparecerá en segundos.<p>Una vez inyectado se adquirirán las imágenes que duran unos 10 minutos.</p>
 		<p>A continuación dejaremos pasar sobre los 30 minutos, en los cuales deberá caminar (recomendamos calzado cómodo).</p>
-		<p>Al regresar realizaremos más imágenes de unos 20 minutos.</p> <p>Por último dejaremos pasar aproximadamente 1,5 horas para realizar las últimas imágenes. En este último tiempo de espera ya no hará falta caminar todo el tiempo, pudiendo llevar vida normal</p></div>
+		<p>Al regresar realizaremos más imágenes de unos 20 minutos.</p> 
+		<p>Por último dejaremos pasar aproximadamente 1,5 horas para realizar las últimas imágenes. En este último tiempo de espera ya no hará falta caminar todo el tiempo, pudiendo llevar vida normal</p>
+	</div>
 	<div class="section"><span class="label">Precauciones</span>Una vez finalizada la prueba, no será necesario tener ninguna precaución con los que les rodean, la dosis restante se eliminará al cabo de poco tiempo.
      	<p>En caso de <strong> embarazo y lactancia</strong> deberá comunicarlo al servicio de Medicina Nuclear para dar instrucciones.</p>
     </div>
 </div>
 
 <div id="panel-ganglio_centinela" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Ganglio Centinela</h2>
-	<div class="imgrow"><img src="imagenes/centinela.png" alt="Ganglio centinela">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/centinela.png" alt="Ganglio centinela">
+		</div>
+	</div>
     	<p><a href="https://youtube.com/shorts/sW_0_qGWQqY?si=wacaNmRICC_LKhKE" target="_blank">Ver video</a></p>
 	<div class="section"><span class="label">Indicaciones</span>Mapeo prequirúrgico para identificar el primer ganglio de drenaje linfático en la zona afectada (Cáncer de mama, melanomas, etc…).
     </div>
@@ -184,20 +236,34 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 		<p>Una vez localizados se dejará una marca en la piel para que en quirófano, el cirujano pueda saber fácilmente por donde acceder, minimizando los daños en la zona.</p> 
 		<p>Finalizada la prueba podrá ir marcharse con normalidad</p>
 	</div>
-	<div class="section"><span class="label">Precauciones</span>En caso de <strong> embarazo y lactancia</strong> deberá comunicarlo al servicio de Medicina Nuclear para dar instrucciones.</div>
+	<div class="section"><span class="label">Precauciones</span>En caso de <strong> embarazo y lactancia</strong> deberá comunicarlo al servicio de Medicina Nuclear para dar instrucciones.
+	</div>
 </div>
 
-  <div id="panel-renograma_diuretico" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Renograma Diurético</h2><div class="imgrow"><img src="imagenes/renograma.png" alt="Renograma diurético"></div><p><a href="https://youtube.com/shorts/Znh_55g4AOY?si=BlA9FSaV0jJJFA5y" target="_blank">Ver video</a></p>
-	  <div class="section"><span class="label">Indicaciones</span>Diferenciar obstrucción verdadera de dilatación no obstructiva.</div>
-	  <div class="section"><span class="label">Preparación</span>Hidratación y vejiga vacía al inicio.</div>
-<div class="section"><span class="label">Procedimiento</span>Se administrará vía intravenosa una pequeña dosis de radioisótopo (Tc-99m).<p>Una vez inyectado se empezarán ha adquirir las imágenes cuyo tiempo  será de uno 30 minutos.</p><p>A mitad del estudio, por la vía que tiene puesta, se le administrará un fármaco que provoca un aumento de la diurésis renal. Está acción permitirá estudiar la fusión renal en caso de estrés.</p>
-	<p>Una vez terminada la adquisición de imágenes, podrá ir a vaciar la vejiga, y volver al cabo de una hora aproximada previa micción, para realizar una última imagen de unos 5 minutos con la vejiga vacia.</p>
-</div><div class="section"><span class="label">Precauciones</span>Debido a la utilización del diurético, en las 3 a 4 horas posteriores, tendrá más ganas de ir al baño.<p>En caso de <strong> alérgias</strong> a las furosemidas y o diuréticos, deberá comunicarlo al servicio de Medicina Nuclear.</p>En caso de <strong> embarazo y lactancia</strong> deberá comunicarlo al servicio de Medicina Nuclear para dar instrucciones.</div>
-  </div>
+<div id="panel-renograma_diuretico" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Renograma Diurético</h2>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">  
+		<div class="imgrow"><img src="imagenes/renograma.png" alt="Renograma diurético">
+		</div>	  
+	</div>
+	  	<p><a href="https://youtube.com/shorts/Znh_55g4AOY?si=BlA9FSaV0jJJFA5y" target="_blank">Ver video</a></p>
+	<div class="section"><span class="label">Indicaciones</span>Diferenciar obstrucción verdadera de dilatación no obstructiva.
+	</div>
+	<div class="section"><span class="label">Preparación</span>Hidratación y vejiga vacía al inicio.
+	</div>
+	<div class="section"><span class="label">Procedimiento</span>Se administrará vía intravenosa una pequeña dosis de radioisótopo (Tc-99m).<p>Una vez inyectado se empezarán ha adquirir las imágenes cuyo tiempo  será de uno 30 minutos.</p><p>A mitad del estudio, por la vía que tiene puesta, se le administrará un fármaco que provoca un aumento de la diurésis renal. Está acción permitirá estudiar la fusión renal en caso de estrés.</p>
+		<p>Una vez terminada la adquisición de imágenes, podrá ir a vaciar la vejiga, y volver al cabo de una hora aproximada previa micción, para realizar una última imagen de unos 5 minutos con la vejiga vacia.</p>
+	</div>	
+	</div><div class="section"><span class="label">Precauciones</span>Debido a la utilización del diurético, en las 3 a 4 horas posteriores, tendrá más ganas de ir al baño.
+		<p>En caso de <strong> alérgias</strong> a las furosemidas y o diuréticos, deberá comunicarlo al servicio de Medicina Nuclear.
+		</p>En caso de <strong> embarazo y lactancia</strong> deberá comunicarlo al servicio de Medicina Nuclear para dar instrucciones.
+	</div>
+</div>
   
 <div id="panel-renograma_captopril" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Renograma Captopril</h2>
-	<div class="imgrow"><img src="imagenes/renograma.png" alt="Renograma captopril">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/renograma.png" alt="Renograma captopril">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Diagnóstico de hipertensión renovascular.
     </div>
 	<div class="section"><span class="label">Preparación</span>Suspender el uso de captopril y medicamentos similares (IECAs) varios días antes de la prueba (suele ser entre 3 y 6 días, según tu médico).
@@ -211,8 +277,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-glandulas_salivales" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Glándulas Salivales</h2>
-	<div class="imgrow"><img src="imagenes/salivales.png" alt="Glándulas salivales">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/salivales.png" alt="Glándulas salivales">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Valoración de la función secretora y obstrucciones, evaluar Síndrome de Sjögren, detectar inflamaciones o tumores en los conductos salivales.
     </div>
 	<div class="section"><span class="label">Preparación</span>Requiere de ayuno previo de unas 4 horas y no fumar.
@@ -226,8 +294,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-perf_cerebral" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>SPECT Perfusión Cerebral</h2>
-	<div class="imgrow"><img src="imagenes/cerebral.png" alt="SPECT cerebral">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/cerebral.png" alt="SPECT cerebral">
+    	</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Evalúa el flujo sanguíneo en el cerebro, pudiendo detectar demencias, epilepsia, alzhéimer o accidentes cerebro vasculares.
     </div>
 	<div class="section"><span class="label">Preparación</span>Evitar sustancias estimulantes (cafeína, alcohol, tabaco), las 24 horas antes de la prueba.
@@ -243,8 +313,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-datscan" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>DaTSCAN</h2>
-	<div class="imgrow"><img src="imagenes/datscan.png" alt="DaTSCAN">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/datscan.png" alt="DaTSCAN">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Diferenciación de trastornos Parkinsonianos vs temblores esenciales.
     </div>
 	<div class="section"><span class="label">Preparación</span>No requiere ayunas.
@@ -260,8 +332,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
  <div id="panel-perf_pulmonar" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Perfusión Pulmonar</h2>
- 	<div class="imgrow"><img src="imagenes/perfusion_pulmon.png" alt="Perfusión pulmonar">
-    </div>
+ 	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/perfusion_pulmon.png" alt="Perfusión pulmonar">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Valoración de perfusión pulmonar y coágulos sanguíneos.
     </div>
 	<div class="section"><span class="label">Preparación</span>No precisa de ayunas.
@@ -274,9 +348,11 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
     </div>
 </div>
   
-<div id="panel-vent_pulmonar" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Ventilación Pulmonar</h2><div class="imgrow">
-	<img src="imagenes/ventilacion_pulmon.png" alt="Ventilación pulmonar">
-    </div>
+<div id="panel-vent_pulmonar" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Ventilación Pulmonar</h2>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/ventilacion_pulmon.png" alt="Ventilación pulmonar">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Estudio de la distribución del aire en los pulmones, utilizada en ocasiones junto con la percusión pulmonar.
     	<p>Evalua daño por EPOC o asma severo.</p>
 		<p>También puede medir la función pulmonar antes de una cirugía de toráx</p>
@@ -292,8 +368,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-mibi" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Perfusión Miocárdica (MIBI)</h2>
-	<div class="imgrow"><img src="imagenes/mibi.png" alt="Perfusión miocárdica">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/mibi.png" alt="Perfusión miocárdica">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Detección de isquemia y viabilidad miocárdica.
     </div>
 	<div class="section"><span class="label">Preparación</span>La prueba constará de dos fase: 
@@ -316,8 +394,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-amiloidosis" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Amiloidosis Cardíaca</h2>
-  	<div class="imgrow"><img src="imagenes/amiloidosis.png" alt="Amiloidosis cardíaca">
-    </div>
+  	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/amiloidosis.png" alt="Amiloidosis cardíaca">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Diagnóstico de amiloidosis cardíaca por transtirretina sin biopsia.
     </div>
 	<div class="section"><span class="label">Preparación</span>Generalmente no precisa ayunas.
@@ -333,8 +413,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-vaciamiento_gastrico" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Vaciamiento Gástrico</h2>
-	<div class="imgrow"><img src="imagenes/Vaciamiento.png" alt="Vaciamiento Gástrico">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/vaciamiento.png" alt="Vaciamiento Gástrico">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Estudio del vaciamiento del estómago, gastroparesia, síndrome de evacuación gástrica rápida, náuseas y vómitos recurrentes.
     </div>
 	<div class="section"><span class="label">Preparación</span>Ayuno previo de 4 a 6 horas previas.
@@ -348,9 +430,11 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
   	</div>
 </div>
   
-  <div id="panel-leucocitos" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía con Leucocitos Marcados</h2>
-  	<div class="imgrow"><img src="imagenes/leucocitos.png" alt="Gammagrafia con Leucocitos Marcados">
-  	</div>
+<div id="panel-leucocitos" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía con Leucocitos Marcados</h2>
+  	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/leucocitos.png" alt="Gammagrafia con Leucocitos Marcados">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Búsqueda de infección o inflamación activa.</div>
 	<div class="section"><span class="label">Preparación</span>Dependerá del protocolo: 
 		<ul>
@@ -371,7 +455,9 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
      
 <div id="panel-hipertiroidismo" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Tratamiento Hipertiroidismo</h2>
-	<div class="imgrow"><img src="imagenes/yodo131.png" alt="Tratamiento con Yodo 131">
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/yodo131.png" alt="Tratamiento con Yodo 131">
+		</div>
 	</div>
     <div class="section"><span class="label">Indicaciones</span>Terapia con yodo radiactivo para extrañamiento del Hipertiroidismo.
     </div>
@@ -386,8 +472,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
 
 <div id="panel-ytrio90" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Tratamiento intraarticular con Ytrio-90 o Renio-186</h2>
-	<div class="imgrow"><img src="imagenes/itrio90.png" alt="Tratamiento con Itrio-90 // Renio-186">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/itrio90.png" alt="Tratamiento con Itrio-90 // Renio-186">
+		</div>
+	</div>
     <div class="section"><span class="label">Indicaciones</span>Sinovectomía radioisotópica, artritis persistentes.
     </div>
 	<div class="section"><span class="label">Preparación</span>No requiere preparación previa.
@@ -400,8 +488,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
 
 <div id="panel-rastreo_yodo131" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Rastreo con Yodo 131</h2>
-	<div class="imgrow"><img src="imagenes/rastreoyodo.png" alt="Rastreo con Yodo 131">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/rastreoyodo.png" alt="Rastreo con Yodo 131">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Estudio de captación y localización de tejido tiroideo o enfermedad metastásica tiroidea.
     </div>
 	<div class="section"><span class="label">Preparación</span>Puede requerir dieta baja en yodo y suspensión de medicación tiroidea según el protocolo.
@@ -414,8 +504,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-rastreo_galio67" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Rastreo con Galio 67</h2>
-	<div class="imgrow"><img src="imagenes/galio.png" alt="Gammagrafia con Galio 67">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/galio.png" alt="Gammagrafia con Galio 67">
+		</div>
+	</div>
     <div class="section"><span class="label">Indicaciones</span>Detección de inflamación, infección y algunos tumores como linfomas.
     </div>
 	<div class="section"><span class="label">Preparación</span>Generalmente no precisa preparación especial.
@@ -428,8 +520,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
  
 <div id="panel-octeotrido" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Gammagrafía con Octeotrido</h2>
-	<div class="imgrow"><img src="imagenes/octeotrido.png" alt="Gammagrafia con Octeotrido">
-    </div>
+	<div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/octeotrido.png" alt="Gammagrafia con Octeotrido">
+		</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Estudio de tumores neuroendocrinos mediante análogos de somatostatina.
     </div>
 	<div class="section"><span class="label">Preparación</span>Puede requerir suspensión temporal de tratamientos análogos de somatostatina según protocolo.
@@ -447,8 +541,10 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
 </div>
   
 <div id="panel-mibg" class="panel"><div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button></div><h2>Rastreo con MIBG</h2>
-	<div class="imgrow"><img src="imagenes/mibg.png" alt="Rastreo con MIBG">
-    </div>
+	 <div class="contenedor-imagen" onclick="alternarZoom(this)">
+		<div class="imgrow"><img src="imagenes/mibg.png" alt="Rastreo con MIBG">
+    	</div>
+	</div>
 	<div class="section"><span class="label">Indicaciones</span>Localización de feocromocitoma, neuroblastoma y otros tumores de origen neuroendocrino.
     </div>
 	<div class="section"><span class="label">Preparación</span>Puede requerir bloqueo tiroideo con medicación específica y suspensión de algunos fármacos según el protocolo.<p>Indique al servicio de Medicina Nuclear la medicación que esté tomando.</p>
@@ -470,11 +566,12 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
     </p>
 </footer>
 <script>
-function mostrar(id){document.getElementById('lista').classList.add('hidden');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
-function volver(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('lista').classList.remove('hidden');document.getElementById('buscador').value='';filtrar()}
-function limpiarFiltro(){document.getElementById('buscador').value='';filtrar()}
-function filtrar(){const q=document.getElementById('buscador').value.toLowerCase().trim();document.querySelectorAll('.prueba').forEach(b=>{const ok=b.textContent.toLowerCase().includes(q);b.style.display=ok?'block':'none'})}
-
+	function mostrar(id){document.getElementById('lista').classList.add('hidden');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+	function volver(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('lista').classList.remove('hidden');document.getElementById('buscador').value='';filtrar()}
+	function limpiarFiltro(){document.getElementById('buscador').value='';filtrar()}
+	function filtrar(){const q=document.getElementById('buscador').value.toLowerCase().trim();document.querySelectorAll('.prueba').forEach(b=>{const ok=b.textContent.toLowerCase().includes(q);b.style.display=ok?'block':'none'})}
+ // Función que añade o quita la clase 'ampliada'
+	function alternarZoom(elemento) {elemento.classList.toggle('ampliada');}
 </script>
 </body>
 </html>
