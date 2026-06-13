@@ -23,7 +23,7 @@ h1{margin:0;font-size:32px;line-height:1.1}
 .searchbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 input{flex:1;min-width:220px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;font-size:16px}
 button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:pointer}
-.primary{background:var(--blue);color:#fff;font-weight:600}
+.primary{background:var(--blue);color:#fff;font-weight:600;}
 .secondary{background:#fff;color:var(--blue);border:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
 .card-btn{background:var(--card);border:1px solid rgba(0,0,0,.08);padding:14px 16px;border-radius:14px;text-align:left;font-weight:600;color:var(--blue);box-shadow:0 4px 14px rgba(0,0,0,.04)}
@@ -91,6 +91,36 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
   height: auto;
   object-fit: contain;
 }
+  		<!--ALINEAR BOTONES-->
+  /* Contenedor para poner botones en línea */
+    .botones-container {
+      display: flex;              /* Pone elementos en línea */
+      gap: 110px;                  /* Separación entre botones (15px) */
+      justify-content: space-between;        /* Alinea verticalmente */
+      text-decoration: none;
+    }
+  			<!--ESTILO BOTONES TIPO ENLACE-->
+   /* Botones de enlace - ANARANJADO y diferente */
+    .btn-link {
+      background: #ff9c14;        /* Anaranjado (diferente del azul) */
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 24px;         /* Tamaño pequeño */
+      font-size: 0.9rem;
+      border-radius: 8px;
+      border: none;
+      text-decoration: none;     /* Sin subrayado */
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 156, 20, 0.4); /* Sombra extra para resaltar */
+      transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-link:hover {
+      background: #e88d0c;        /* Anaranjado más oscuro */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 156, 20, 0.5);
+    }
+	
 </style>
 </head>
 <body>
@@ -106,13 +136,21 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
       </a>
 	<img class="header-img" src="imagenes/gammadibujo.png" alt="Gammacámara">
 	</div>
-    <div class="subtitle">Información simple para preparación, indicaciones y recomendaciones de Medicina Nuclear.</div>
-    <div class="searchbar">
+    <div class="subtitle">Información simple para preparación, indicaciones y recomendaciones de Medicina Nuclear.</div></p>
+    <div class="subtitle">Aquí también podrá acceder a otras guía pulsando en los siguientes enlaces:</p>
+      				
+						<!--BOTONES DE ENLACES A OTRAS PAGINAS-->
+      <div class="botones-container">
+      <a href="https://nuclear-man.github.io/guia-tac/" class="btn-link"></a><button class="btn-link" onclick="">GUIA TAC</button> 
+      <a href="https://nuclear-man.github.io/guia-RM/" class="btn-link"></a><button class="btn-link" onclick="guia-RM">GUIA RESONANCIA</button> 
+    
+      					<!--BOTON Y ZONA DE BUSQUEDA DE PRUEBAS-->
+      <div class="searchbar">
       <input id="buscador" type="text" placeholder="Buscar prueba..." oninput="filtrar()">
       <button class="primary" onclick="limpiarFiltro()">Limpiar</button>
     </div>
   </div>
-
+						<!--BLOQUE DE LISTADO DE BOTONES DE LAS PRUEBAS-->
   <div id="lista" class="grid">
     <button class="card-btn prueba" data-id="osea" onclick="mostrar('osea')">Gammagrafía Ósea</button>
     <button class="card-btn prueba" data-id="tiroides" onclick="mostrar('tiroides')">Gammagrafía Tiroides</button>
@@ -138,6 +176,8 @@ button{border:0;border-radius:12px;padding:14px 16px;font-size:15px;cursor:point
     <button class="card-btn prueba" data-id="octeotrido" onclick="mostrar('octeotrido')">Gammagrafía con Octeotrido</button>
     <button class="card-btn prueba" data-id="mibg" onclick="mostrar('mibg')">Rastreo con MIBG</button>
   </div>
+								
+								<!--BLOQUE DE LAS PRUEBAS-->
 								<!--GAMMAGRAFIA OSEA-->
 <div id="panel-osea" class="panel">
 	<div class="top-actions"><button class="secondary" onclick="volver()">← Volver</button>
